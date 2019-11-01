@@ -6,11 +6,13 @@ import "./SwitchLanguage.css";
 import swapButton from "../../assets/images/arrows.png";
 class SwitchLanguage extends Component {
   state = {
-    ifClicked: false
+    ifClicked: false,
+   
   };
   swapHandler = () => {
-    this.setState({ ifClicked: !this.state.ifClicked });
+    this.setState({ ifClicked: !this.state.ifClicked});
   };
+  
   render() {
     let lang1 = <UnitLanguage country="German" pic={flag1} />;
 
@@ -21,6 +23,7 @@ class SwitchLanguage extends Component {
       lang1 = <UnitLanguage country="US" pic={flag2} />;
     }
 
+    
     return (
       <div>
         {lang1}
