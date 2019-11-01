@@ -1,11 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import SwitchLanguage from './components/switchLanguages/SwitchLanguages';
 
 function App() {
   return (
     <div className="App">
-   
+   <SwitchLanguage />
     </div>
   );
 }
