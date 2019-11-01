@@ -5,10 +5,11 @@ const UnitLanguage = props => {
   return (
     <div className="languageContainer">
       <div className="flagContainer">
-        <img src={props.pic} alt="flag" className="flag"/>
-        </div>
-        <p>{props.country}</p>
-     
+        <img src={props.pic} alt="flag" className="flag" />
+      </div>
+      <div className="nameContainer">
+        <p className="name">{props.country}</p>
+      </div>
     </div>
   );
 };
