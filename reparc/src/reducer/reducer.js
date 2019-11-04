@@ -4,7 +4,7 @@ const list = {
     age:28
 }
 const reducer = (state=list, action)=>{
-    if(action.type==="MY_LIST"){
+    if(action.type==="ADD_LIST"){
         return {
             ...state,
             name:action.payload
