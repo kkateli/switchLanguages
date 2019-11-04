@@ -5,13 +5,16 @@ import flag2 from "../../assets/images/USFlag.jpg";
 import "./SwitchLanguage.css";
 import swapButton from "../../assets/images/arrows.png";
 import { connect } from "react-redux";
-import {addList} from "../../action/action";
+import {addList,getPost} from "../../action/action";
 class SwitchLanguage extends Component {
   state = {
     ifClicked: false,
     ifAnimated: false,
     text: ""
   };
+  componentDidMount=()=>{
+    this.props.showList();
+  }
   swapHandler = () => {
     this.setState({
       ifClicked: !this.state.ifClicked,
@@ -68,7 +71,7 @@ class SwitchLanguage extends Component {
           
         </div>
         <div>{this.props.myList.name}</div>
-        
+        <div>{this.props.myList.list}</div>
       </div>
     );
   }
@@ -79,7 +82,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps=(dispatch)=>{
   return {
-    addNewList:(list)=>dispatch(addList(list))
+    addNewList:(list)=>dispatch(addList(list)),
+    showList: ()=>dispatch(getPost())
+
 }
 }
 
