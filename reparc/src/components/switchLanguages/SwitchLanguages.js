@@ -4,18 +4,30 @@ import flag1 from "../../assets/images/GermanFlag.png";
 import flag2 from "../../assets/images/USFlag.jpg";
 import "./SwitchLanguage.css";
 import swapButton from "../../assets/images/arrows.png";
+import { connect } from "react-redux";
 class SwitchLanguage extends Component {
   state = {
     ifClicked: false,
-   
+    ifAnimated:false
   };
   swapHandler = () => {
-    this.setState({ ifClicked: !this.state.ifClicked});
+    this.setState({ ifClicked: !this.state.ifClicked, ifAnimated:!this.state.ifAnimated});
   };
+ 
+
   
   render() {
-    let lang1 = <UnitLanguage country="German" pic={flag1} />;
+    const {ifAnimated}=this.state.ifAnimated;
 
+    const classnames = [
+        'lang1',
+        ifAnimated ? 'lang1Wrapper--ani': 'lang1Wrapper'
+      ];
+
+    let lang1 =(<div className={classnames.join(' ')}>
+<UnitLanguage country="German" pic={flag1} />
+    </div>) ;
+ 
     let lang2 = <UnitLanguage country="US" pic={flag2} />;
     if (this.state.ifClicked !== false) {
       lang2 = <UnitLanguage country="German" pic={flag1} />;
@@ -34,8 +46,15 @@ class SwitchLanguage extends Component {
           onClick={this.swapHandler}
         />
         {lang2}
+        
+        <div>{this.props.myList.name}</div>
       </div>
     );
   }
 }
-export default SwitchLanguage;
+const mapStateToProps = state => {
+  return { myList: state.myList};
+};
+
+
+export default connect(mapStateToProps,null)(SwitchLanguage);

@@ -5,3 +5,14 @@
     margin-bottom:10px;
 }
 
+.lang1Wrapper{
+    opacity: 1;
+    
+}
+
+.lang1Wrapper--ani{
+   
+
+    
+    opacity: 0;
+}
